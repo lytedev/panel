@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Link extends Model {
 
     protected $table = 'links';
-    protected $fillable = array('url', 'display', 'main');
+    protected $fillable = array('url', 'display', 'show_menu');
 
     static $cache = [];
 
@@ -39,11 +39,11 @@ class Link extends Model {
         return self::$cache['main_urls'];
     }
 
-    public function getAndSave($url, $display, $main = true)
+    public function getAndSave($url, $display, $show_menu = true)
     {
         $this->url = $url;
         $this->display = $display;
-        $this->main = $main;
+        $this->show_menu = $show_menu;
         $this->save();
     }
 
