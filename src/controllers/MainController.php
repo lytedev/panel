@@ -9,7 +9,6 @@ namespace Serverfireteam\Panel;
 
 use \Serverfireteam\Panel\libs\PanelElements;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Log;
 
 class MainController extends Controller {
 
