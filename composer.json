@@ -1,6 +1,6 @@
 {
     "name": "serverfireteam/panel",
-    "description": "Admin panel for Laravel applications",
+    "description": "Admin panel for Laravel applications (fork of serverfireteam/panel)",
     "keywords": ["LaravelPanel","Laravel", "Panel", "Crud", "Admin Panel","CMS","administrator", "admin", "backend"],
     "license": "MIT",
     "authors": [
@@ -9,24 +9,28 @@
             "email": "siavash@serverfire.net"
         },
         {
-        "name": "Alireza Aboutalebi",
-        "email": "ali@serverfire.net"
+            "name": "Alireza Aboutalebi",
+            "email": "ali@serverfire.net"
         },
         {
-        "name": "Hamid Reza Salimian ",
-        "email": "hamid@salimian.me"
+            "name": "Hamid Reza Salimian ",
+            "email": "hamid@salimian.me"
         },
         {
-        "name": "Alenoosh Baghoomian",
-        "email": "hope2end@gmail.com"
+            "name": "Alenoosh Baghoomian",
+            "email": "hope2end@gmail.com"
+        },
+        {
+            "name": "Daniel Flanagan",
+            "email": "daniel@lytedev.io"
         }
     ],
     "require": {
-        "php": ">=5.4.0",        
+        "php": ">=5.4.0",
         "illuminate/support": "~5.1",
         "serverfireteam/rapyd-laravel" : "1.5.*",
         "maatwebsite/excel": "~2.0.0",
-	"barryvdh/laravel-elfinder": "0.3.*"
+        "barryvdh/laravel-elfinder": "0.3.*"
     },
     "autoload": {
         "classmap": [
@@ -34,12 +38,11 @@
             "src/views",
             "src/models",
             "src/database/migrations",
-  	        "src/Serverfireteam/Panel/Commands"
+            "src/Serverfireteam/Panel/Commands"
         ],
         "psr-0": {
             "Serverfireteam\\Panel": "src/"
         }
     },
     "minimum-stability": "dev"
-    
 }
