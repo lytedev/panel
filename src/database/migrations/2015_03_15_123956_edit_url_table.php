@@ -12,10 +12,15 @@ class EditUrlTable extends Migration {
 	 */
 	public function up()
 	{
-            Schema::table('links', function($table)
-            {
-                $table->boolean('main')->nullable();
-            });
+		Schema::table('links', function($table)
+		{
+			$table->boolean('main')->nullable();
+		});
+
+		DB::table('links')->where('url', '=', 'Link')->delete();
+
+		$linkLink = new Serverfireteam\Panel\Link;
+		$linkLink->getAndSave('Link', 'Links', true);
 	}
 
 	/**

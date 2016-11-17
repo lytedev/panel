@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Link extends Model {
 
     protected $table = 'links';
+    protected $fillable = array('url', 'display', 'main');
 
     static $cache = [];
 
@@ -18,8 +19,8 @@ class Link extends Model {
         return self::$cache['all'];
     }
 
-    public static function returnUrls($forceRefresh = false) {
-
+    public static function returnUrls($forceRefresh = false)
+    {
         if (!isset(self::$cache['all_urls']) || $forceRefresh) {
             $configs = Link::allCached($forceRefresh);
             self::$cache['all_urls'] =  $configs->pluck('url')->toArray();
@@ -28,8 +29,8 @@ class Link extends Model {
         return self::$cache['all_urls'];
     }
 
-    public static function getMainUrls($forceRefresh = false){
-
+    public static function getMainUrls($forceRefresh = false)
+    {
         if (!isset(self::$cache['main_urls']) || $forceRefresh) {
             $configs = Link::where('main', '=', true)->get(['url']);
             self::$cache['main_urls'] = $configs->pluck('url')->toArray();
@@ -38,22 +39,12 @@ class Link extends Model {
         return self::$cache['main_urls'];
     }
 
-
-    public function getAndSave($url, $display, $show_menu = true){
+    public function getAndSave($url, $display, $main = true)
+    {
         $this->url = $url;
         $this->display = $display;
-        $this->show_menu = $show_menu;
+        $this->main = $main;
         $this->save();
     }
 
-
-    protected $fillable = array('url', 'display', 'show_menu');
-
-
-// //get roles user
-//     public function role()
-//     {
-//         return $this->hasOne('Models\Role');
-//     }
-    
 }

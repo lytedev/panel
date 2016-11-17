@@ -47,7 +47,7 @@ class LinkController extends CrudController {
         $this->edit->label('Edit Links');
         $this->edit->link("rapyd-demo/filter", "Articles", "TR")->back();
         $this->edit->add('display', 'Display', 'text')->rule('required');
-        $this->edit->add('url', 'link', 'text')->rule('required');
+        $this->edit->add('url', 'Link', 'text')->rule('required');
         $this->edit->add('show_menu','Show in Menu','checkbox');
 
         $this->edit->saved(function () use ($entity) {
