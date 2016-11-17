@@ -9,15 +9,16 @@ namespace Serverfireteam\Panel;
 
 use \Serverfireteam\Panel\libs\PanelElements;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
 
 class MainController extends Controller {
 
-    public function entityUrl($entity, $methods){
+    public function entityUrl($entity, $methods) {
         $appHelper = new libs\AppHelper();
 
         $urls = Link::getMainUrls();
 
-        if ( in_array($entity, $urls)){
+        if (in_array($entity, $urls)) {
             $controller_path = 'Serverfireteam\Panel\\'.$entity.'Controller';
         } else {
             $panel_path = \Config::get('panel.controllers');
@@ -28,19 +29,17 @@ class MainController extends Controller {
             }
         }
 
-        try{
+        try {
             $controller = \App::make($controller_path);
-        }catch(\Exception $ex){
-            throw new \Exception("Can not found the Controller ( $controller_path ) ");
+        } catch(\Exception $ex) {
+            throw new \Exception("Cannot find controller $controller_path");
         }
 
-        if (!method_exists($controller, $methods)){
-            throw new \Exception('Controller does not implement the CrudController methods!');
+        if (!method_exists($controller, $methods)) {
+            throw new \Exception('Controller does not implement CrudController methods');
         } else {
             return $controller->callAction($methods, array('entity' => $entity));
         }
     }
 
 }
-
-
