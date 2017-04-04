@@ -13,9 +13,9 @@ return array(
         'Role',
         'Link'
     ),
-
     // panel login page logo
-    'logo' => 'packages/serverfireteam/panel/img/logo.png'
+    'logo' => 'packages/serverfireteam/panel/img/logo.png',
+    'modelPath' => '' // specific model path in the app folder e.g. 'Models'
 
 );
 
